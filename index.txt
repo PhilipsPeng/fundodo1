@@ -1,0 +1,200 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
+<html lang="zh-Hant-TW">
+   <head>
+      <jsp:include page="./include/header_resources.jsp" flush="true"/>		
+      <title>房多多-首頁</title>
+      <script type="text/javascript">
+      $(function() {
+    	  
+	      $.ajax({
+	          type :"POST",
+	          url  : "https://www.fundodo.net/pl-admin-test/api/videoCarousel",
+	          async : false,
+	    //   contentType : 'application/json; charset=utf-8',
+	    //    data : JSON.stringify(obj),
+	          success : function(data) {
+	           console.log(data);
+	           
+               var $iframe = $('.onlineClass_video');
+               if ( $iframe.length > 0 && data !=null && data.videoCarouselVO !=null) {
+                   $iframe.eq(0).attr('src',data.videoCarouselVO.videoUrl1);   
+                   $iframe.eq(1).attr('src',data.videoCarouselVO.videoUrl2);   
+                   $iframe.eq(2).attr('src',data.videoCarouselVO.videoUrl3); 
+                   return false;
+               }
+	       },
+	       error : function(xhr,ajaxOption,error) {
+	        //alert(xhr.responseText);
+	       }
+	      });
+      });
+      
+      </script>
+   </head>
+   <body>
+      <!-- ... Loading ... -->
+      <div id="loading_mask">
+         <p>FUNDODO</p>
+      </div>
+      <div id="wrapper">
+            
+         <jsp:include page="./include/modal.jsp" flush="true"/>		
+         <div class="mask"></div>    
+    
+
+	     <jsp:include page="./include/header.jsp" flush="true"/>		
+
+	     <jsp:include page="./include/index_banner_box.jsp" flush="true"/>		
+
+         <!-- ... Content -->
+         <section class="container">
+            <div class="house_platform_intro">
+                <h2>誰適合加入我們</h2>
+                <ul class="clearfix">
+                  <li>
+                     <img src="images/Index_feature1.png" alt="小資族" title="小資族">
+                     <h3>小資族</h3>
+                  </li>
+                  <li>
+                     <img src="images/Index_feature2.png" alt="上班族" title="上班族">
+                     <h3>上班族</h3>
+                  </li>
+                  <li>
+                     <img src="images/Index_feature3.png" alt="月光族" title="月光族">
+                     <h3>月光族</h3>
+                  </li>
+                  <li>
+                     <img src="images/Index_feature4.png" alt="投資房產族" title="投資房產族">
+                     <h3>投資房產族</h3>
+                  </li>
+                  <li>
+                     <img src="images/Index_feature5.png" alt="存款不足族" title="存款不足族">
+                     <h3>存款不足族</h3>
+                  </li>
+               </ul>
+            </div>
+            <div class="index_class_speech_teacher">
+               <h2>影音廣告</h2>
+            </div>
+            <section class="video_slider">
+               <div class="video_slider">
+                  <div class="slick-slide">
+                     <iframe class="onlineClass_video" src="" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                  </div>
+                  <div class="slick-slide">
+                     <iframe class="onlineClass_video" src="" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                  </div>
+                  <div class="slick-slide">
+                     <iframe class="onlineClass_video" src="" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                  </div>
+               </div>
+            </section>            
+            <div class="index_class_speech_teacher">
+               <h2>報名講座</h2>
+               <ul class="owl-carousel owl-theme clearfix">
+                  <li class="item">
+                     <img src="images/872520.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2021.02.15</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+                  <li class="item">
+                     <img src="images/872521.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2020.12.02</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+                  <li class="item">
+                     <img src="images/872522.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2020.11.02</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+                  <li class="item">
+                     <img src="images/872520.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2020.09.15</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+                  <li class="item">
+                     <img src="images/872523.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2020.05.15</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+                  <li class="item">
+                     <img src="images/872524.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2020.03.13</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+                  <li class="item">
+                     <img src="images/872525.jpg" alt="首頁報名講座">
+                     <span class="index_class_date">2020.02.10</span>
+                     <h3>網路行銷全方位的入門的上集課程入門的上集課程</h3>
+                  </li>
+               </ul>
+            </div>
+                        <div class="index_class_speech_teacher">
+               <h2>達人介紹</h2>
+               <ul class="owl-carousel owl-theme clearfix">
+                  <li class="item">
+                     <img src="images/speech_teacher1.png" alt="房多多達人-琦琦 Monica" title="房多多達人-琦琦 Monica">
+                     <h3>房多多達人-琦琦 Monica</h3>
+                     <p>女力時代，女人要有錢</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher2.png" alt="房多多達人-J哥 Jack" title="房多多達人-J哥 Jack">
+                     <h3>房多多達人-J哥 Jack</h3>
+                     <p>精益求精，成就非凡</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher3.png" alt="房多多達人-茉莉 Molly" title="房多多達人-茉莉 Molly">
+                     <h3>房多多達人-茉莉 Molly</h3>
+                     <p>全力以赴，創造最棒的人生劇本</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher4.png" alt="房多多達人-宥伶 Connie" title="房多多達人-宥伶 Connie">
+                     <h3>房多多達人-宥伶 Connie</h3>
+                     <p>租一個家，不如買一個家</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher5.png" alt="房多多達人-騏樂 Tracy" title="房多多達人-騏樂 Tracy">
+                     <h3>房多多達人-騏樂 Tracy</h3>
+                     <p>用最少的資金，開啟房地產5G時代</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher6.png" alt="房多多達人-悅心 Cindi" title="房多多達人-悅心 Cindi">
+                     <h3>房多多達人-悅心 Cindi</h3>
+                     <p>投資房地產不再是有錢人的專利</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher7.png" alt="房多多達人-順小姐 Sandy" title="房多多達人-順小姐 Sandy">
+                     <h3>房多多達人-順小姐 Sandy</h3>
+                     <p>透過房地產的學習，累積財富</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher8.png" alt="房多多達人-安遜 Anson" title="房多多達人-安遜 Anson">
+                     <h3>房多多達人-安遜 Anson</h3>
+                     <p>透過財務規劃，翻轉人生</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher9.png" alt="房多多達人-皓皓 Alex" title="房多多達人-皓皓 Alex">
+                     <h3>房多多達人-皓皓 Alex</h3>
+                     <p>追求財務自由，過著真正屬於自己的人生</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher10.png" alt="房多多達人-大帥 Hsun" title="房多多達人-大帥 Hsun">
+                     <h3>房多多達人-大帥 Hsun</h3>
+                     <p>上帝在關閉一扇門的同時，一定會為你打開另一扇門</p>
+                  </li>
+                  <li class="item">
+                     <img src="images/speech_teacher11.png" alt="首頁達人介紹">
+                     <h3>房多多達人-郁珍 Jenny</h3>
+                     <p>最壞的年代，要做最值得的投入</p>
+                  </li>
+               </ul>
+            </div>
+         </section>
+
+	     <jsp:include page="./include/footer.jsp" flush="true"/>		
+
+      </div>
+   </body>
+</html>
